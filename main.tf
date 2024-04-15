@@ -259,7 +259,7 @@ resource "aws_msk_configuration" "this" {
 
   name              = format("%s-%s", coalesce(var.configuration_name, var.name), random_id.this[0].dec)
   description       = var.configuration_description
-  kafka_versions    = [var.configuration_kafka_version]
+  kafka_versions    = var.configuration_kafka_versions
   server_properties = join("\n", [for k, v in var.configuration_server_properties : format("%s = %s", k, v)])
 
   lifecycle {

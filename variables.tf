@@ -178,9 +178,9 @@ variable "create_configuration" {
   default     = true
 }
 
-variable "configuration_kafka_version" {
+variable "configuration_kafka_versions" {
   description = "List of Apache Kafka versions which can use this configuration."
-  type        = string
+  type        = set(string)
   default     = null
 }
 
