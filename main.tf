@@ -251,6 +251,12 @@ data "aws_iam_policy_document" "this" {
 resource "random_id" "this" {
   count = var.create && var.create_configuration ? 1 : 0
 
+  keepers = {
+    # Generate a new id each time a new version of server property is used
+    kafka_version     = var.kafka_version
+    server_properties = join("\n", [for k, v in var.configuration_server_properties : format("%s = %s", k, v)])
+  }
+
   byte_length = 8
 }
 
