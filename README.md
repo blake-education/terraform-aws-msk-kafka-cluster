@@ -179,6 +179,7 @@ No modules.
 | <a name="input_cluster_source_policy_documents"></a> [cluster\_source\_policy\_documents](#input\_cluster\_source\_policy\_documents) | Source policy documents for cluster policy | `list(string)` | `null` | no |
 | <a name="input_configuration_arn"></a> [configuration\_arn](#input\_configuration\_arn) | ARN of an externally created configuration to use | `string` | `null` | no |
 | <a name="input_configuration_description"></a> [configuration\_description](#input\_configuration\_description) | Description of the configuration | `string` | `null` | no |
+| <a name="input_configuration_kafka_version"></a> [configuration\_kafka\_version](#input\_configuration\_kafka\_version) | List of Apache Kafka versions which can use this configuration. | `string` | `null` | no |
 | <a name="input_configuration_name"></a> [configuration\_name](#input\_configuration\_name) | Name of the configuration | `string` | `null` | no |
 | <a name="input_configuration_revision"></a> [configuration\_revision](#input\_configuration\_revision) | Revision of the externally created configuration to use | `number` | `null` | no |
 | <a name="input_configuration_server_properties"></a> [configuration\_server\_properties](#input\_configuration\_server\_properties) | Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html) | `map(string)` | `{}` | no |

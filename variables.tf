@@ -178,6 +178,12 @@ variable "create_configuration" {
   default     = true
 }
 
+variable "configuration_kafka_version" {
+  description = "List of Apache Kafka versions which can use this configuration."
+  type        = string
+  default     = null
+}
+
 variable "configuration_arn" {
   description = "ARN of an externally created configuration to use"
   type        = string
