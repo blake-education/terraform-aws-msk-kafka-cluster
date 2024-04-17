@@ -253,8 +253,7 @@ resource "random_id" "this" {
 
   keepers = {
     # Generate a new id each time a new version of server property is used
-    kafka_version     = var.kafka_version
-    server_properties = join("\n", [for k, v in var.configuration_server_properties : format("%s = %s", k, v)])
+    kafka_version = var.kafka_version
   }
 
   byte_length = 8
