@@ -252,8 +252,8 @@ resource "random_id" "this" {
   count = var.create && var.create_configuration ? 1 : 0
 
   keepers = {
-    # Generate a new id each time a new version of server property is used
-    kafka_version = var.kafka_version
+    # Generate a new id each time a new version is used.  If this isnt used, the same msk_config name is used and the plan fails.
+    kafka_version = join(",", coalesce(var.configuration_kafka_versions, [""]))
   }
 
   byte_length = 8
@@ -264,9 +264,8 @@ resource "aws_msk_configuration" "this" {
 
   name              = format("%s-%s", coalesce(var.configuration_name, var.name), random_id.this[0].dec)
   description       = var.configuration_description
-  kafka_versions    = [var.kafka_version]
   server_properties = join("\n", [for k, v in var.configuration_server_properties : format("%s = %s", k, v)])
-
+  kafka_versions    = var.configuration_kafka_versions
   lifecycle {
     create_before_destroy = true
   }

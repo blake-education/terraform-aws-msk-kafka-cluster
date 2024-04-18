@@ -202,6 +202,12 @@ variable "configuration_description" {
   default     = null
 }
 
+variable "configuration_kafka_versions" {
+  description = "List of Apache Kafka versions which can use this configuration"
+  type        = set(string)
+  default     = null
+}
+
 variable "configuration_server_properties" {
   description = "Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html)"
   type        = map(string)
